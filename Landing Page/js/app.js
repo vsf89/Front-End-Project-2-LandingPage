@@ -109,25 +109,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Add class 'active' to section when near top of viewport
 
-window.addEventListener('scroll', update);
-
-//settimeout(
-function update() {
-    let current = document.getElementsByClassName('active');
-    for (let index = 0; index < sections.length; index++) {
-        const element = sections[index];
-        const rect = element.getBoundingClientRect();
-
-        let scrol = window.scrollY;
-        if (scrol > 0 && rect.top < window.innerHeight && rect.bottom >= window.innerHeight / 2) {
-            element.classList.add('active');
-        }
-        else if (current.id !== element.id) {
-            element.classList.remove('active');
-        }
+var timer = null;
+window.addEventListener('scroll', function() {
+    if(timer !== null) {
+        clearTimeout(timer);        
     }
-}
-//, 1000);
+    timer = setTimeout(function() {
+        let current = document.getElementsByClassName('active');
+            for (let index = 0; index < sections.length; index++) {
+                const element = sections[index];
+                const rect = element.getBoundingClientRect();
+        
+                let scrol = window.scrollY;
+                if (scrol > 0 && rect.top < window.innerHeight && rect.bottom >= window.innerHeight / 2) {
+                    element.classList.add('active');
+                }
+                else if (current.id !== element.id) {
+                    element.classList.remove('active');
+                }
+            }
+    }, 500);
+}, false);
 
 // Scroll to anchor ID using scrollTO event
 
