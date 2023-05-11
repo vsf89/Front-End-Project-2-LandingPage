@@ -95,7 +95,11 @@ function createSection(sectionId, sectionName) {
 // build the nav
 
 document.addEventListener('DOMContentLoaded', function () {
+    createSection('section1', 'Section 1');
+    createSection('section2', 'Section 2');
+    createSection('section3', 'Section 3');
     createSection('section4', 'Section 4');
+    createSection('section5', 'Section 5');
 
     const ulElement = document.getElementById('navbar__list');
     createList(ulElement, sections);
