@@ -22,10 +22,10 @@
  * Define Global Variables
  * 
 */
-const navBarMenu = document.querySelectorAll("navbar__menu");
+//const navBarMenu = document.querySelectorAll("navbar__menu");
 //const sections = document.querySelectorAll('section');
 const sections = document.getElementsByTagName('section');
-const landingContainer = document.getElementsByClassName('landing__container');
+//const landingContainer = document.getElementsByClassName('landing__container');
 const sectionNavName = "data-nav";
 
 /**
@@ -55,6 +55,7 @@ function addSection(sectionId, sectionName) {
 function createList(ulElement, sections) {
     for (let i = 0; i < sections.length; i++) {
         const aElement = document.createElement('a');
+        aElement.className = "links";
         aElement.href = `#section${ulElement.children.length + 1}`;
         aElement.innerHTML += `${aElement}`;
         aElement.innerText = `${sections[i].getAttribute(sectionNavName)}`;
@@ -110,22 +111,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 window.addEventListener('scroll', update);
 
+//settimeout(
 function update() {
     let current = document.getElementsByClassName('active');
-     for (let index = 0; index < sections.length; index++) {
-         const element = sections[index];
-         const rect = element.getBoundingClientRect();
+    for (let index = 0; index < sections.length; index++) {
+        const element = sections[index];
+        const rect = element.getBoundingClientRect();
 
         let scrol = window.scrollY;
-        if (scrol > 0 && rect.top < window.innerHeight && rect.bottom >= window.innerHeight / 2) {                     
+        if (scrol > 0 && rect.top < window.innerHeight && rect.bottom >= window.innerHeight / 2) {
             element.classList.add('active');
         }
-        else if(current.id !== element.id)
-        {            
+        else if (current.id !== element.id) {
             element.classList.remove('active');
         }
-     }
+    }
 }
+//, 1000);
 
 // Scroll to anchor ID using scrollTO event
 
@@ -139,6 +141,21 @@ function update() {
 // Build menu
 
 // Scroll to section on link click
+
+addEventListener('click', menuClick);
+
+function menuClick(evt) {
+   if (evt.target.nodeName === 'A'){
+    evt.preventDefault();
+    for (let index = 0; index < sections.length; index++) {
+        const element = sections[index];
+        if (evt.target.hash.replace("#","") === element.id) {          
+            element.scrollIntoView({ behavior: "smooth" }); 
+        }
+    }
+}
+
+}
 
 // Set sections as active
 
