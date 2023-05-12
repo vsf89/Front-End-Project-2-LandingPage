@@ -32,7 +32,7 @@ This can be easily extended by adding **1 line code**  to the DOMContentLoaded e
 # Quickstart/Demo
 [(Back to top)](#table-of-contents)
 
-![Right Nav Screenshot with background highlighted](Landing Page\images\RightNavMenu.png)
+![Right Nav Screenshot with background highlighted!](Landing Page\images\RightNavMenu.png)
 
 # Development
 [(Back to top)](#table-of-contents)
