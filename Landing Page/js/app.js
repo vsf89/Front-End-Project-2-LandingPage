@@ -113,7 +113,7 @@ var timer = null;
 let elt = document.getElementsByClassName('navbar__menu');
 console.log(elt);
 let initScroll = window.scrollY;
-window.addEventListener('scroll', function() {
+document.addEventListener('scroll', function() {
     if(timer !== null) {
         clearTimeout(timer);        
     }
@@ -131,7 +131,7 @@ window.addEventListener('scroll', function() {
                 }
                 else if (current.id !== element.id) {
                     element.classList.remove('active');
-                   elt[0].classList.remove('nav-up');
+                    elt[0].classList.remove('nav-up');
                 }
 
                  initScroll = innerScroll;
