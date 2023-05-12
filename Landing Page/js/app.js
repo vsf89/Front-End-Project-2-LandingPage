@@ -80,7 +80,7 @@ function createSection(sectionId, sectionName) {
     nextDiv.append(para1);
     nextDiv.append(para2);
 
-    let section4 = addSection(sectionId, sectionName);
+    let section4 = addSection(sectionId, sectionName + " ");
     section4.appendChild(nextDiv);
 
     const mainSection = document.body.getElementsByTagName('main')[0];
@@ -110,23 +110,31 @@ document.addEventListener('DOMContentLoaded', function () {
 // Add class 'active' to section when near top of viewport
 
 var timer = null;
+let elt = document.getElementsByClassName('navbar__menu');
+console.log(elt);
+let initScroll = window.scrollY;
 window.addEventListener('scroll', function() {
     if(timer !== null) {
         clearTimeout(timer);        
     }
     timer = setTimeout(function() {
+       
         let current = document.getElementsByClassName('active');
             for (let index = 0; index < sections.length; index++) {
                 const element = sections[index];
                 const rect = element.getBoundingClientRect();
         
-                let scrol = window.scrollY;
-                if (scrol > 0 && rect.top < window.innerHeight && rect.bottom >= window.innerHeight / 2) {
+                let innerScroll = window.scrollY;
+                if (innerScroll > 0 && rect.top < window.innerHeight && rect.bottom >= window.innerHeight / 2) {
                     element.classList.add('active');
+                    elt[0].classList.add('nav-up');
                 }
                 else if (current.id !== element.id) {
                     element.classList.remove('active');
+                   elt[0].classList.remove('nav-up');
                 }
+
+                 initScroll = innerScroll;
             }
     }, 500);
 }, false);
