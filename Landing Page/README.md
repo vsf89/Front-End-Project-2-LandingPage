@@ -31,8 +31,15 @@ This can be easily extended by adding **1 line code**  to the DOMContentLoaded e
 
 # Quickstart/Demo
 [(Back to top)](#table-of-contents)
+Right Nav with background highlighted.
+Background gets highlighted on mouse hover.
 
 ![Right Nav Screenshot with background highlighted!](/Landing%20Page/images/RightNavMenu.png)
+
+
+Example section added to landing page
+
+![Additional section!](/Landing%20Page/images/ExampleSectionWithMovingBubbles.JPG)
 
 # Development
 [(Back to top)](#table-of-contents)
@@ -47,7 +54,9 @@ Technologies used:
 # Contribute
 [(Back to top)](#table-of-contents)
 This work is part of Udacity Front End Nanodegree course.
+Individual contributor.
 
 
 # License
 [(Back to top)](#table-of-contents)
+This work is part of Udacity Front End Nanodegree course.
