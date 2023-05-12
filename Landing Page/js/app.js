@@ -22,10 +22,8 @@
  * Define Global Variables
  * 
 */
-//const navBarMenu = document.querySelectorAll("navbar__menu");
-//const sections = document.querySelectorAll('section');
+
 const sections = document.getElementsByTagName('section');
-//const landingContainer = document.getElementsByClassName('landing__container');
 const sectionNavName = "data-nav";
 
 /**
@@ -34,24 +32,25 @@ const sectionNavName = "data-nav";
  * 
 */
 
-
+/**
+* @description Generate a paragraph dynamcially
+* @param {paraText} Consumer enters the paragraph text
+* @returns {p} Dynamically generated paragraph
+*/
 function createParagraph(paraText) {
     let para1 = document.createElement("p");
     para1.textContent = paraText;
     return para1;
 }
 
-function addSection(sectionId, sectionName) {
-    let section = document.createElement("section");
-    section.id = sectionId;
-    section.setAttribute(sectionNavName, sectionName);
-    return section;
-}
-
-/*
-// ul > li > a
-// ulEl > liEl > aEl
- */
+/**
+* @description Creates an unordered list
+* @param {ulElement} unordered list
+* @param {sections} sections to be linked to the list
+* Order of adding elements - ul > li > a
+* Order of adding elements - ulElement > liElement > aElement
+* @returns list of elements
+*/
 function createList(ulElement, sections) {
     for (let i = 0; i < sections.length; i++) {
         const aElement = document.createElement('a');
@@ -66,6 +65,25 @@ function createList(ulElement, sections) {
     }
 }
 
+/**
+* @description Generates a section dynamically
+* @param {sectionId} Id of the section
+* @param {sectionName} Section Name as appears on the webpage
+* @returns {section} 
+*/
+function addSection(sectionId, sectionName) {
+    let section = document.createElement("section");
+    section.id = sectionId;
+    section.setAttribute(sectionNavName, sectionName);
+    return section;
+}
+
+/**
+* @description Creates a section and add to the nav
+* @param {sectionId} Id of the section
+* @param {sectionName} Section Name as appears on the webpage
+* @returns {section} section
+*/
 function createSection(sectionId, sectionName) {
     let nextDiv = document.createElement("div");
     nextDiv.className = 'landing__container';
@@ -113,29 +131,29 @@ var timer = null;
 let elt = document.getElementsByClassName('navbar__menu');
 console.log(elt);
 let initScroll = window.scrollY;
-document.addEventListener('scroll', function() {
-    if(timer !== null) {
-        clearTimeout(timer);        
+document.addEventListener('scroll', function () {
+    if (timer !== null) {
+        clearTimeout(timer);
     }
-    timer = setTimeout(function() {
-       
-        let current = document.getElementsByClassName('active');
-            for (let index = 0; index < sections.length; index++) {
-                const element = sections[index];
-                const rect = element.getBoundingClientRect();
-        
-                let innerScroll = window.scrollY;
-                if (innerScroll > 0 && rect.top < window.innerHeight && rect.bottom >= window.innerHeight / 2) {
-                    element.classList.add('active');
-                    elt[0].classList.add('nav-up');
-                }
-                else if (current.id !== element.id) {
-                    element.classList.remove('active');
-                    elt[0].classList.remove('nav-up');
-                }
+    timer = setTimeout(function () {
 
-                 initScroll = innerScroll;
+        let current = document.getElementsByClassName('active');
+        for (let index = 0; index < sections.length; index++) {
+            const element = sections[index];
+            const rect = element.getBoundingClientRect();
+
+            let innerScroll = window.scrollY;
+            if (innerScroll > 0 && rect.top < window.innerHeight && rect.bottom >= window.innerHeight / 2) {
+                element.classList.add('active');
+                elt[0].classList.add('nav-up');
             }
+            else if (current.id !== element.id) {
+                element.classList.remove('active');
+                elt[0].classList.remove('nav-up');
+            }
+
+            initScroll = innerScroll;
+        }
     }, 500);
 }, false);
 
@@ -155,15 +173,15 @@ document.addEventListener('scroll', function() {
 addEventListener('click', menuClick);
 
 function menuClick(evt) {
-   if (evt.target.nodeName === 'A'){
-    evt.preventDefault();
-    for (let index = 0; index < sections.length; index++) {
-        const element = sections[index];
-        if (evt.target.hash.replace("#","") === element.id) {          
-            element.scrollIntoView({ behavior: "smooth" }); 
+    if (evt.target.nodeName === 'A') {
+        evt.preventDefault();
+        for (let index = 0; index < sections.length; index++) {
+            const element = sections[index];
+            if (evt.target.hash.replace("#", "") === element.id) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
         }
     }
-}
 
 }
 
