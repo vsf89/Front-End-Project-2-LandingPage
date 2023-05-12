@@ -50,10 +50,11 @@ Technologies used:
 * Javascript Version: ES2015/ES6
 * Javascript Standard: ESlint
 
-References:
-https://www.markdownguide.org/basic-syntax/
+**References:**
 
-https://developer.mozilla.org/en-US/docs/Web
+* https://www.markdownguide.org/basic-syntax/
+
+* https://developer.mozilla.org/en-US/docs/Web
 
 
 # Contribute
