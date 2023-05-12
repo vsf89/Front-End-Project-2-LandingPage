@@ -18,7 +18,7 @@ Front End Project 2 - Landing Page
 * There are 5 sections currently visible via navbar on the landing page.
 This can be easily extended by adding **1 line code**  to the DOMContentLoaded event function call -
 
-    <em>createSection('sectionId', 'sectionName');<em>
+    <em>createSection('sectionId', 'sectionName');</em>
 
     For ex. to add a 6th section, just add -
     createSection('section6', 'Section 6');
