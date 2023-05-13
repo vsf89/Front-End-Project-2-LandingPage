@@ -128,31 +128,28 @@ document.addEventListener('DOMContentLoaded', function () {
 // Add class 'active' to section when near top of viewport
 
 var timer = null;
-let elt = document.getElementsByClassName('navbar__menu');
-console.log(elt);
-let initScroll = window.scrollY;
 document.addEventListener('scroll', function () {
     if (timer !== null) {
         clearTimeout(timer);
     }
     timer = setTimeout(function () {
-
+        const navBarList = document.getElementById('navbar__list');
         let current = document.getElementsByClassName('active');
+
         for (let index = 0; index < sections.length; index++) {
             const element = sections[index];
-            const rect = element.getBoundingClientRect();
+            const sectionRect = element.getBoundingClientRect();
+            innerScroll = window.scrollY;
+            var visible = window.scrollY > 0 && sectionRect.top < window.innerHeight / 2 && sectionRect.bottom >= window.innerHeight / 2;
 
-            let innerScroll = window.scrollY;
-            if (innerScroll > 0 && rect.top < window.innerHeight && rect.bottom >= window.innerHeight / 2) {
+            if (visible) {
                 element.classList.add('active');
-                elt[0].classList.add('nav-up');
+                navBarList.childNodes[index].classList.add('active');
             }
             else if (current.id !== element.id) {
                 element.classList.remove('active');
-                elt[0].classList.remove('nav-up');
+                navBarList.childNodes[index].classList.remove('active');
             }
-
-            initScroll = innerScroll;
         }
     }, 500);
 }, false);

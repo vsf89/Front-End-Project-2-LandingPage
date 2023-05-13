@@ -7,21 +7,21 @@
  * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
  *
 */
-.links {    
+.links {
     font-family: cursive;
-    font-size: larger;    
+    font-size: larger;
     text-decoration: solid;
-    padding: 15px;    
- }
+    padding: 15px;
+}
 
- .links:hover {
+.links:hover {
     background-color: #cc1;
- }
+}
 
 /* ---- Base Rules ---- */
 body {
-    background: rgb(136,203,171);
-    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+    background: rgb(136, 203, 171);
+    background: linear-gradient(0deg, rgba(136, 203, 171, 1) 0%, rgba(0, 13, 60, 1) 100%);
     margin: 0;
     font-family: 'Merriweather', serif;
     color: #fff;
@@ -35,7 +35,7 @@ h1 {
     margin: 2em 1rem;
 }
 
-@media only screen and (min-width: 35em){
+@media only screen and (min-width: 35em) {
     h1 {
         font-size: 7em;
         margin: 2em 4rem 1em;
@@ -43,30 +43,30 @@ h1 {
 }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
-    .links {    
+    .links {
         font-family: cursive;
-        font-size: small;    
+        font-size: small;
         text-decoration: solid;
-        padding: 5px;    
-     }
+        padding: 5px;
+    }
 }
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
-    .links {    
+    .links {
         font-family: cursive;
-        font-size: smaller;    
+        font-size: smaller;
         text-decoration: solid;
-        padding: 2px;    
-     }
+        padding: 2px;
+    }
 }
 
 @media screen and (min-width: 280px) and (max-width: 683px) {
-    .links {    
+    .links {
         font-family: cursive;
-        font-size: small;    
+        font-size: small;
         text-decoration: solid;
-        padding: 15px;    
-     }
+        padding: 15px;
+    }
 }
 
 h2 {
@@ -100,7 +100,7 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
-.navbar__menu{
+.navbar__menu {
     height: 41px;
 }
 
@@ -111,7 +111,7 @@ section {
 }
 
 .navbar__menu li {
-     display: inline-block;
+    display: inline-block;
 }
 
 .navbar__menu .menu__link {
@@ -128,9 +128,10 @@ section {
     transition: ease 0.3s all;
 }
 
-.nav-up {
-    top: -70px;
-  }
+.navbar__menu ul#navbar__list li.active {
+    background-color: #cc1;
+}
+
 
 /* Header Styles */
 .page__header {
@@ -148,7 +149,7 @@ section {
     color: #fff;
 }
 
-.page__footer p{
+.page__footer p {
     color: #fff;
 }
 
@@ -158,9 +159,10 @@ section {
 .landing__container {
     padding: 1em;
     text-align: left;
+    /* height: auto; */
 }
 
-@media only screen and (min-width: 35em){
+@media only screen and (min-width: 35em) {
     .landing__container {
         max-width: 50em;
         padding: 4em;
@@ -170,7 +172,7 @@ section {
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;
-    text-align: right; 
+    text-align: right;
 }
 
 /* Background Circles */
@@ -190,8 +192,8 @@ section:nth-of-type(odd) .landing__container::before {
 
 section:nth-of-type(even) .landing__container::before {
     content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
     position: absolute;
     top: 3em;
     right: 3em;
@@ -205,8 +207,8 @@ section:nth-of-type(even) .landing__container::before {
 
 section:nth-of-type(3n) .landing__container::after {
     content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
     position: absolute;
     right: 0;
     bottom: 0;
@@ -220,8 +222,8 @@ section:nth-of-type(3n) .landing__container::after {
 
 section:nth-of-type(3n + 1) .landing__container::after {
     content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
     position: absolute;
     right: 20vw;
     bottom: -5em;
@@ -255,35 +257,16 @@ section.active .landing__container::after {
 
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
-	from {
-		transform: rotate(0deg)
-		           translate(-1em)
-		           rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg)
-		           translate(-1em) 
-		           rotate(-360deg);
-	}
+    from {
+        transform: rotate(0deg) translate(-1em) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translate(-1em) rotate(-360deg);
+    }
 }
 
-html,body{
+html,
+body {
     scroll-behavior: smooth;
- }
-
- /* a {
-    margin-left: 50px;
- } */
-
- /* .links {
-    font-family: 'Merriweather', serif;
-    font-size: larger;
-    text-decoration: none;   
-    margin-left: 10px;
- }
-
- .links:hover {
-    background-color: black;
-    text-decoration-color: white;
- } */
-    
+}
