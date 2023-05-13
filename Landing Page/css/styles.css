@@ -16,6 +16,7 @@
 
 .links:hover {
     background-color: #cc1;
+    padding: 7px;
 }
 
 /* ---- Base Rules ---- */
@@ -130,6 +131,7 @@ section {
 
 .navbar__menu ul#navbar__list li.active {
     background-color: #cc1;
+    padding: 7px;
 }
 
 

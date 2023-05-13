@@ -151,7 +151,7 @@ document.addEventListener('scroll', function () {
                 navBarList.childNodes[index].classList.remove('active');
             }
         }
-    }, 500);
+    }, 100);
 }, false);
 
 // Scroll to anchor ID using scrollTO event
